@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Deck, FlexBox, Box, FullScreen, Markdown, Progress } from 'spectacle';
-import mdContent from './slides.md';
+import {
+  Deck,
+  FlexBox,
+  Box,
+  FullScreen,
+  Markdown,
+  Progress,
+  Slide,
+} from 'spectacle';
+import content from './content';
+import TitleSlide from './components/TitleSlide';
 
 // SPECTACLE_CLI_THEME_START
 const theme = {};
 // SPECTACLE_CLI_THEME_END
 
 // SPECTACLE_CLI_TEMPLATE_START
-const template = () => (
+const template = ({ slideNumber, numberOfSlides }) => (
   <FlexBox
     justifyContent='space-between'
     position='absolute'
@@ -19,7 +28,7 @@ const template = () => (
       <FullScreen />
     </Box>
     <Box padding='1em'>
-      <Progress />
+      {slideNumber + 1} / {numberOfSlides}
     </Box>
   </FlexBox>
 );
@@ -28,9 +37,21 @@ const template = () => (
 const Presentation = () => {
   return (
     <Deck loop theme={theme} template={template}>
-      <Markdown containsSlides>{mdContent}</Markdown>
+      {content.map((c, i) => {
+        const Component = c.component;
+
+        console.log({ Component, content: c.content });
+
+        return (
+          <Slide>
+            <Component key={i} {...c.content} />
+          </Slide>
+        );
+      })}
     </Deck>
   );
 };
 
+{
+}
 ReactDOM.render(<Presentation />, document.getElementById('root'));

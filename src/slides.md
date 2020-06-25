@@ -245,10 +245,6 @@ Will this go 10x or better?
 
 ---
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vStKurNsaIXsmdEfR-avDiPpPtzSEqbjth9bWusNefWxeawvvtwbQy270RpuWSVP0514TqTYkeEXLVh/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" style='height: 100%; width: 100%;'></iframe>
-
----
-
 ### Demo Questions
 
 ---
